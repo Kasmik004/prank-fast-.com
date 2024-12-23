@@ -1,0 +1,45 @@
+{
+    "name": "Fast.com Speed Prank",
+    "version": "0.1.2",
+    "description": "This extension pranks the Fast.com speed test by altering the displayed results.",
+    "permissions": [
+        "storage",
+        "tabs",
+        "activeTab",
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://*.fast.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.fast.com/*"
+            ],
+            "js": [
+                "contentScript.js"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "assets/*"
+            ],
+            "matches": []
+        }
+    ],
+    "action": {
+        "default_icon": {
+            "16": "assets/speedometer.png",
+            "24": "assets/speedometer.png",
+            "32": "assets/speedometer.png"
+        },
+        "default_title": "Fast.com Speed Prank",
+        "default_popup": "popup.html"
+    },
+    "manifest_version": 3
+}
